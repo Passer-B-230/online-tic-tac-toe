@@ -1,0 +1,16 @@
+{
+  "name": "online-tic-tac-toe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "一个简单的在线双人井字棋游戏",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

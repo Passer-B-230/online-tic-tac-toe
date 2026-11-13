@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ed">
+  <title>圈圈叉叉 · 在线井字棋</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><a class="brand" href="/">○ <span>圈圈叉叉</span> ×</a><span class="top-note">一个给朋友的小游戏</span></header>
+    <section class="intro"><div class="eyebrow"><span class="dot"></span> 随时随地，来一局</div><h1>简单一点，<br><em>快乐多一点。</em></h1><p>不用下载，不用注册。邀请一位朋友，<br>在小小的棋盘上，认真玩一局。</p></section>
+    <section class="card" aria-label="游戏区域">
+      <div id="lobby">
+        <div class="card-heading"><div><span class="step">READY TO PLAY</span><h2>准备好了吗？</h2></div><span class="doodle">✳</span></div>
+        <p class="muted">创建一个房间，或者输入朋友给你的房间号。</p>
+        <button id="create" class="primary">创建房间 <span>↗</span></button>
+        <div class="divider"><span>或者加入朋友</span></div>
+        <form id="join-form" class="join"><label class="sr-only" for="code">房间号</label><input id="code" placeholder="输入 6 位房间号" maxlength="6" autocomplete="off" required><button class="secondary" type="submit">加入房间 <span>→</span></button></form>
+        <p id="error" class="error" role="alert"></p>
+      </div>
+      <div id="game" hidden>
+        <div class="game-top"><div><span class="step">YOUR LITTLE GAME</span><h2>来一局井字棋</h2></div><button id="leave" class="text-button">离开房间 ↗</button></div>
+        <div class="room-row"><span>房间号 <strong id="room-code"></strong></span><button id="copy" class="copy">复制邀请链接 ↗</button></div>
+        <div class="players"><div id="player-x" class="player"><b class="symbol x">×</b><span>玩家 X<small id="label-x"></small></span></div><span class="vs">VS</span><div id="player-o" class="player"><b class="symbol o">○</b><span>玩家 O<small id="label-o"></small></span></div></div>
+        <p id="status" class="status" aria-live="polite"></p>
+        <div id="board" class="board" role="group" aria-label="井字棋棋盘"></div>
+        <button id="rematch" class="primary rematch" hidden>再来一局 <span>↗</span></button>
+        <p id="hint" class="hint"></p>
+      </div>
+    </section>
+    <footer><span>MADE FOR A LITTLE FUN ☻</span><span>和喜欢的人，一起消磨时间。</span></footer>
+  </main>
+</body>
+</html>
